@@ -20,29 +20,29 @@ document.getElementById('sizeForm').addEventListener('submit', function(e) {
     let recommendedDepth = shelfDepths.find(d => d >= depth);
     let recommendedHeight = shelfHeights.find(h => h >= height);
 
-    let resultMessage = `Recommended Shelf Size: `;
+    let resultMessage = `추천하는 선반 사이즈:\n`;
     
     if (!recommendedWidth) {
-        resultMessage += `적절한 가로(폭) 사이즈가 없습니다. `;
+        resultMessage += `적절한 가로(폭) 사이즈가 없습니다.\n`;
     } else {
-        resultMessage += `Width: ${recommendedWidth}, `;
+        resultMessage += `가로 ${recommendedWidth}\n`;
     }
 
     if (!recommendedDepth) {
-        resultMessage += `적절한 세로(깊이) 사이즈가 없습니다. `;
+        resultMessage += `적절한 세로(깊이) 사이즈가 없습니다.\n`;
     } else {
-        resultMessage += `Depth: ${recommendedDepth}, `;
+        resultMessage += `깊이 ${recommendedDepth}\n`;
     }
 
     if (!recommendedHeight) {
-        resultMessage += `적절한 높이 사이즈가 없습니다. `;
+        resultMessage += `적절한 높이 사이즈가 없습니다.\n`;
     } else {
-        resultMessage += `Height: ${recommendedHeight}`;
+        resultMessage += `높이 ${recommendedHeight}\n`;
     }
 
     if (recommendedWidth && recommendedDepth) {
         let reinforcementCount = recommendedWidth < 800 ? 3 : 4;
-        resultMessage += `\n+${recommendedDepth}합판보강대 ${reinforcementCount}개`;
+        resultMessage += `+${recommendedDepth}합판보강대 ${reinforcementCount}개`;
     }
 
     document.getElementById('result').innerText = resultMessage;
